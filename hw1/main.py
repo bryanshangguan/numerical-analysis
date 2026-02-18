@@ -161,8 +161,11 @@ def main() -> None:
     p3 = run_problem_3()
     print_problem_1(rows)
     print_problem_3(p3)
-    write_results_markdown(rows, p3, hw1_dir / "results.md")
-    print(f"\nWrote markdown report: {hw1_dir / 'results.md'}")
+    report_path = hw1_dir / "results.md"
+    write_results_markdown(rows, p3, report_path)
+    print(f"\nWrote markdown report: {report_path}")
+    print("\nGenerated markdown report contents:\n")
+    print(report_path.read_text(encoding="utf-8"))
 
 if __name__ == "__main__":
     main()

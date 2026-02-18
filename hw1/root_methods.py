@@ -26,13 +26,13 @@ def _failure_result(method: str, x_value: float, history: List[IterationPoint], 
     if history:
         residual = abs(history[-1].fx)
     return MethodResult(
-        method=method,
-        converged=False,
-        root=x_value,
-        iterations=len(history),
-        residual=residual,
-        history=history,
-        message=message,
+        method = method,
+        converged = False,
+        root = x_value,
+        iterations = len(history),
+        residual = residual,
+        history = history,
+        message = message,
     )
 
 def _safe_eval(f: Function, x: float) -> tuple[bool, float, str]:
@@ -69,12 +69,12 @@ def newton_method(
                 return _failure_result(method, x_next, history, f"Function evaluation failed: {err_next}")
             history.append(IterationPoint(iteration=n + 1, x=x_next, fx=fx_next))
             return MethodResult(
-                method=method,
-                converged=True,
-                root=x_next,
-                iterations=n,
-                residual=abs(fx_next),
-                history=history,
+                method = method,
+                converged = True,
+                root = x_next,
+                iterations = n,
+                residual = abs(fx_next),
+                history = history,
             )
         x_n = x_next
 
@@ -110,12 +110,12 @@ def secant_method(
                 return _failure_result(method, x_next, history, f"Function evaluation failed: {err_next}")
             history.append(IterationPoint(iteration=n + 1, x=x_next, fx=fx_next))
             return MethodResult(
-                method=method,
-                converged=True,
-                root=x_next,
-                iterations=n,
-                residual=abs(fx_next),
-                history=history,
+                method = method,
+                converged = True,
+                root = x_next,
+                iterations = n,
+                residual = abs(fx_next),
+                history = history,
             )
         x_prev, x_curr = x_curr, x_next
 
@@ -139,22 +139,22 @@ def bisection_method(
     if fa == 0.0:
         history.append(IterationPoint(iteration=1, x=a, fx=fa))
         return MethodResult(
-            method=method,
-            converged=True,
-            root=a,
-            iterations=0,
-            residual=0.0,
-            history=history,
+            method = method,
+            converged = True,
+            root = a,
+            iterations = 0,
+            residual = 0.0,
+            history = history,
         )
     if fb == 0.0:
         history.append(IterationPoint(iteration=1, x=b, fx=fb))
         return MethodResult(
-            method=method,
-            converged=True,
-            root=b,
-            iterations=0,
-            residual=0.0,
-            history=history,
+            method = method,
+            converged = True,
+            root = b,
+            iterations = 0,
+            residual = 0.0,
+            history = history,
         )
     if fa * fb > 0.0:
         return _failure_result(method, a, history, "Interval does not bracket a root.")
@@ -169,21 +169,21 @@ def bisection_method(
         history.append(IterationPoint(iteration=n, x=mid, fx=fmid))
         if prev_mid is not None and abs(mid - prev_mid) < tol:
             return MethodResult(
-                method=method,
-                converged=True,
-                root=mid,
-                iterations=n,
-                residual=abs(fmid),
-                history=history,
+                method = method,
+                converged = True,
+                root = mid,
+                iterations = n,
+                residual = abs(fmid),
+                history = history,
             )
         if fmid == 0.0:
             return MethodResult(
-                method=method,
-                converged=True,
-                root=mid,
-                iterations=n,
-                residual=0.0,
-                history=history,
+                method = method,
+                converged = True,
+                root = mid,
+                iterations = n,
+                residual = 0.0,
+                history = history,
             )
         if fa * fmid < 0.0:
             right = mid
