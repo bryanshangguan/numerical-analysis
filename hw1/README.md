@@ -3,7 +3,7 @@
 This directory contains a full Python implementation for HW1:
 
 - Problem 1: Newton, Secant, and Bisection methods on functions (a) through (j).
-- Problem 2: Concise proof writeup in `theory.md`.
+- Problem 2: Proof writeup in `theory.md`.
 - Problem 3: Fixed-point iteration experiment and theory-vs-observed iteration counts.
 
 ## Run
@@ -11,17 +11,17 @@ This directory contains a full Python implementation for HW1:
 From repository root:
 
 ```bash
-python hw1/main.py
+python main.py
 ```
 
 This prints the numerical tables to the console and writes:
 
-- `hw1/results.md` (auto-generated numeric results for Problems 1 and 3)
+- `results.md` (auto-generated numeric results for Problems 1 and 3)
 - `hw1/theory.md` (derivations for Problems 2 and 3)
 
 ## File Overview
 
-- `hw1/root_methods.py`: reusable method implementations and result dataclasses
-- `hw1/problems.py`: function definitions, derivatives, and method setups
-- `hw1/main.py`: single runner and markdown report generation
-- `hw1/theory.md`: written solutions for Problems 2 and 3
+- `root_methods.py`: reusable method implementations and result dataclasses
+- `problems.py`: function definitions, derivatives, and method setups
+- `main.py`: single runner and markdown report generation
+- `theory.md`: written solutions for Problems 2 and 3
